@@ -103,7 +103,11 @@
 			</form>
 
 			<button class="navbar-toggler site-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'bharathbyte' ); ?>">
-				<span class="site-menu-toggle__line" aria-hidden="true"></span>
+				<span class="site-menu-toggle__box" aria-hidden="true">
+					<span class="site-menu-toggle__line"></span>
+					<span class="site-menu-toggle__line"></span>
+					<span class="site-menu-toggle__line"></span>
+				</span>
 			</button>
 		</div>
 	</div>

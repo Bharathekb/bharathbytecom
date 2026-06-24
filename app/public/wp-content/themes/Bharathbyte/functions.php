@@ -43,7 +43,7 @@ function bharathbyte_enqueue_assets() {
 		'bharathbyte-style',
 		get_stylesheet_directory_uri() . '/assets/css/bharathbyte.css',
 		array( 'bharathbyte-bootstrap', 'bharathbyte-fonts' ),
-		'1.0.5'
+		'1.0.6'
 	);
 
 	wp_enqueue_script(
@@ -58,8 +58,24 @@ function bharathbyte_enqueue_assets() {
 		'bharathbyte-script',
 		get_stylesheet_directory_uri() . '/assets/js/bharathbyte.js',
 		array(),
-		'1.0.2',
+		'1.0.3',
 		true
 	);
 }
 add_action( 'wp_enqueue_scripts', 'bharathbyte_enqueue_assets', 99 );
+
+function bharathbyte_remove_footer_newsletter_item( $items, $args ) {
+	if ( empty( $args->theme_location ) || 'footer' !== $args->theme_location ) {
+		return $items;
+	}
+
+	return array_values(
+		array_filter(
+			$items,
+			function ( $item ) {
+				return 'newsletter' !== strtolower( trim( wp_strip_all_tags( $item->title ) ) );
+			}
+		)
+	);
+}
+add_filter( 'wp_nav_menu_objects', 'bharathbyte_remove_footer_newsletter_item', 10, 2 );

@@ -28,7 +28,6 @@
 					);
 				} else {
 					?>
-					<a href="#newsletter"><?php esc_html_e( 'Newsletter', 'bharathbyte' ); ?></a>
 					<a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'bharathbyte' ); ?></a>
 					<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'bharathbyte' ); ?></a>
 					<?php
@@ -51,7 +50,6 @@
 					);
 				} else {
 					?>
-					<a href="#twitter"><?php esc_html_e( 'Twitter (X)', 'bharathbyte' ); ?></a>
 					<a href="#instagram"><?php esc_html_e( 'Instagram', 'bharathbyte' ); ?></a>
 					<a href="#linkedin"><?php esc_html_e( 'LinkedIn', 'bharathbyte' ); ?></a>
 					<?php

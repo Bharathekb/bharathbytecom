@@ -223,50 +223,60 @@ body.admin-bar {
     width: 44px;
     height: 44px;
     padding: 0;
-    border: 0 !important;
-    border-radius: 4px;
+    border: 1px solid rgba(27, 48, 34, 0.12) !important;
+    border-radius: 8px;
     color: var(--bb-primary) !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    box-shadow: 0 8px 18px rgba(6, 27, 14, 0.06) !important;
     outline: 0 !important;
+    transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .site-menu-toggle:hover,
 .site-menu-toggle:focus-visible {
-    background: var(--bb-hover) !important;
+    border-color: rgba(27, 48, 34, 0.22) !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 24px rgba(6, 27, 14, 0.1) !important;
+    transform: translateY(-1px);
 }
 
-.site-menu-toggle::before,
-.site-menu-toggle::after,
+.site-menu-toggle__box {
+    display: inline-grid;
+    gap: 4px;
+    width: 20px;
+}
+
 .site-menu-toggle__line {
     display: block;
-    width: 18px;
+    width: 20px;
     height: 2px;
     border-radius: 999px;
     background: currentColor;
-    content: "";
+    transform-origin: center;
+    transition: transform 180ms ease, opacity 180ms ease, width 180ms ease;
 }
 
-.site-menu-toggle__line {
-    margin: 4px 0;
+.site-menu-toggle__line:nth-child(2) {
+    width: 14px;
+    justify-self: end;
 }
 
-.site-menu-toggle[aria-expanded="true"]::before {
+.site-menu-toggle[aria-expanded="true"] .site-menu-toggle__line:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
 
-.site-menu-toggle[aria-expanded="true"]::after {
+.site-menu-toggle[aria-expanded="true"] .site-menu-toggle__line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.4);
+}
+
+.site-menu-toggle[aria-expanded="true"] .site-menu-toggle__line:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
 }
 
-.site-menu-toggle[aria-expanded="true"] .site-menu-toggle__line {
-    opacity: 0;
-}
-
-.site-menu-toggle::before,
-.site-menu-toggle::after,
-.site-menu-toggle__line {
-    transition: transform 180ms ease, opacity 180ms ease;
+.site-menu-toggle[aria-expanded="true"] {
+    background: var(--bb-primary) !important;
+    color: #ffffff !important;
 }
 
 .header-search {
@@ -1139,23 +1149,23 @@ body.admin-bar .article-toc {
 
     .primary-nav {
         position: absolute;
-        top: 100%;
-        right: 16px;
-        left: 16px;
+        top: calc(100% + 8px);
+        right: 18px;
+        left: 18px;
         flex: 0 0 auto;
-        padding: 18px 20px;
-        border-top: 1px solid rgba(226, 227, 224, 0.7);
-        border: 1px solid rgba(195, 200, 193, 0.58);
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.96);
-        box-shadow: 0 18px 42px rgba(6, 27, 14, 0.12);
-        backdrop-filter: blur(12px);
+        overflow: hidden;
+        padding: 10px;
+        border: 1px solid rgba(195, 200, 193, 0.68);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 22px 54px rgba(6, 27, 14, 0.16);
+        backdrop-filter: blur(16px);
     }
 
     .primary-nav__menu,
     .primary-nav .navbar-nav {
         align-items: flex-start !important;
-        gap: 14px;
+        gap: 4px;
         width: 100%;
     }
 
@@ -1168,16 +1178,35 @@ body.admin-bar .article-toc {
     .primary-nav__menu a,
     .primary-nav .nav-link {
         width: 100%;
-        padding: 7px 0;
+        padding: 13px 14px;
+        border-radius: 6px;
+        color: rgba(27, 48, 34, 0.72);
         font-size: 15px;
+        line-height: 1.2;
+        transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+    }
+
+    .primary-nav__link:hover,
+    .primary-nav__link:focus-visible,
+    .primary-nav__menu a:hover,
+    .primary-nav__menu a:focus-visible,
+    .primary-nav .nav-link:hover,
+    .primary-nav .nav-link:focus-visible {
+        background: var(--bb-soft-green);
+        transform: translateX(2px);
     }
 
     .primary-nav__link--active::after,
     .primary-nav__menu .current-menu-item > a::after,
     .primary-nav__menu .current_page_item > a::after,
     .primary-nav .nav-link.active::after {
-        bottom: 1px;
-        width: 34px;
+        top: 12px;
+        right: auto;
+        bottom: 12px;
+        left: 4px;
+        width: 3px;
+        height: auto;
+        border-radius: 999px;
     }
 
     .header-search {
@@ -1331,12 +1360,13 @@ body.admin-bar .article-toc {
     }
 
     .primary-nav {
-        gap: 18px;
+        right: 12px;
+        left: 12px;
     }
 
     .primary-nav__link,
     .primary-nav__menu a {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .hero-story h1 {
