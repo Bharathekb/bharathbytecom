@@ -1,0 +1,40 @@
+# LocalWP / machine-specific files
+conf/
+logs/
+*.log
+
+# WordPress local configuration and secrets
+app/public/wp-config.php
+app/public/.htaccess
+
+# WordPress core and generated site files
+app/public/*
+!app/public/wp-content/
+app/public/wp-content/*
+!app/public/wp-content/themes/
+app/public/wp-content/themes/*
+!app/public/wp-content/themes/Bharathbyte/
+!app/public/wp-content/themes/Bharathbyte/**
+
+# WordPress generated content
+app/public/wp-content/uploads/
+app/public/wp-content/upgrade/
+app/public/wp-content/cache/
+app/public/wp-content/backup*/
+app/public/wp-content/backups/
+app/public/wp-content/ai1wm-backups/
+app/public/wp-content/updraft/
+app/public/wp-content/upgrade-temp-backup/
+app/public/wp-content/themes/backups/
+
+# Dependencies and build output
+node_modules/
+vendor/
+dist/
+build/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
