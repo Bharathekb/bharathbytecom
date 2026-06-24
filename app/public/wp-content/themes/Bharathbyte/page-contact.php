@@ -7,7 +7,7 @@
 
 get_header();
 
-$formspree_endpoint = apply_filters( 'bharathbyte_formspree_endpoint', 'https://formspree.io/f/your-form-id' );
+$formspree_endpoint = apply_filters( 'bharathbyte_formspree_endpoint', 'https://formspree.io/f/xvzjzoye' );
 ?>
 
 <section class="contact-page" aria-labelledby="contact-title">
@@ -38,7 +38,7 @@ $formspree_endpoint = apply_filters( 'bharathbyte_formspree_endpoint', 'https://
 				</div>
 				<input type="hidden" name="_subject" value="<?php esc_attr_e( 'New BharathByte contact message', 'bharathbyte' ); ?>">
 				<button type="submit"><?php esc_html_e( 'Send message', 'bharathbyte' ); ?></button>
-				<p class="contact-form__note"><?php esc_html_e( 'Powered by Formspree. Replace the placeholder endpoint with your Formspree form URL before going live.', 'bharathbyte' ); ?></p>
+				<p class="contact-form__note"><?php esc_html_e( 'Powered by Formspree. Your message will be sent securely to BharathByte.', 'bharathbyte' ); ?></p>
 			</form>
 		</div>
 	</div>
