@@ -50,8 +50,8 @@
 					);
 				} else {
 					?>
-					<a href="#instagram"><?php esc_html_e( 'Instagram', 'bharathbyte' ); ?></a>
-					<a href="#linkedin"><?php esc_html_e( 'LinkedIn', 'bharathbyte' ); ?></a>
+					<a href="https://www.instagram.com/mr_bharath95/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Instagram', 'bharathbyte' ); ?></a>
+					<a href="https://www.linkedin.com/in/bharathekboti" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'LinkedIn', 'bharathbyte' ); ?></a>
 					<?php
 				}
 				?>

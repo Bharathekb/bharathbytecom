@@ -66,9 +66,10 @@
 					)
 				);
 
-				$mitrama_item = '<li class="menu-item"><a class="nav-link primary-nav__link" href="http://mitrama.in/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Mitrama', 'bharathbyte' ) . '</a></li>';
+				$extra_items  = '<li class="menu-item"><a class="nav-link primary-nav__link" href="http://mitrama.in/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Mitrama', 'bharathbyte' ) . '</a></li>';
+				$extra_items .= '<li class="menu-item"><a class="nav-link primary-nav__link" href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'Contact', 'bharathbyte' ) . '</a></li>';
 
-				echo str_replace( '</ul>', $mitrama_item . '</ul>', $primary_menu ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo str_replace( '</ul>', $extra_items . '</ul>', $primary_menu ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				?>
 				<ul class="primary-nav__menu navbar-nav align-items-md-center justify-content-md-center gap-md-4 gap-lg-5 list-unstyled m-0 p-0">
@@ -76,6 +77,7 @@
 					<li class="menu-item"><a class="nav-link primary-nav__link" href="<?php echo esc_url( home_url( '/category/' ) ); ?>"><?php esc_html_e( 'Categories', 'bharathbyte' ); ?></a></li>
 					<li class="menu-item"><a class="nav-link primary-nav__link" href="#about"><?php esc_html_e( 'About', 'bharathbyte' ); ?></a></li>
 					<li class="menu-item"><a class="nav-link primary-nav__link" href="http://mitrama.in/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Mitrama', 'bharathbyte' ); ?></a></li>
+					<li class="menu-item"><a class="nav-link primary-nav__link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'bharathbyte' ); ?></a></li>
 				</ul>
 				<?php
 			}

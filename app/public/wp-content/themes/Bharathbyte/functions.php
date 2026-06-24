@@ -43,7 +43,7 @@ function bharathbyte_enqueue_assets() {
 		'bharathbyte-style',
 		get_stylesheet_directory_uri() . '/assets/css/bharathbyte.css',
 		array( 'bharathbyte-bootstrap', 'bharathbyte-fonts' ),
-		'1.0.6'
+		'1.0.7'
 	);
 
 	wp_enqueue_script(
@@ -79,3 +79,33 @@ function bharathbyte_remove_footer_newsletter_item( $items, $args ) {
 	);
 }
 add_filter( 'wp_nav_menu_objects', 'bharathbyte_remove_footer_newsletter_item', 10, 2 );
+
+function bharathbyte_formspree_endpoint( $endpoint ) {
+	if ( defined( 'BHARATHBYTE_FORMSPREE_ENDPOINT' ) && BHARATHBYTE_FORMSPREE_ENDPOINT ) {
+		return BHARATHBYTE_FORMSPREE_ENDPOINT;
+	}
+
+	return $endpoint;
+}
+add_filter( 'bharathbyte_formspree_endpoint', 'bharathbyte_formspree_endpoint' );
+
+function bharathbyte_render_contact_route() {
+	$request_path = isset( $_SERVER['REQUEST_URI'] ) ? wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ) : '';
+	$contact_path = wp_parse_url( home_url( '/contact/' ), PHP_URL_PATH );
+
+	if ( untrailingslashit( $request_path ) !== untrailingslashit( $contact_path ) ) {
+		return;
+	}
+
+	global $wp_query;
+
+	if ( $wp_query instanceof WP_Query ) {
+		$wp_query->is_404  = false;
+		$wp_query->is_page = true;
+	}
+
+	status_header( 200 );
+	include get_stylesheet_directory() . '/page-contact.php';
+	exit;
+}
+add_action( 'template_redirect', 'bharathbyte_render_contact_route' );
