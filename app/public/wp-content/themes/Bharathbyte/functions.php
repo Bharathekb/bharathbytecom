@@ -110,6 +110,15 @@ function bharathbyte_contact_document_title( $title ) {
 add_filter( 'pre_get_document_title', 'bharathbyte_contact_document_title' );
 add_filter( 'rank_math/frontend/title', 'bharathbyte_contact_document_title' );
 
+function bharathbyte_contact_shortlink( $shortlink ) {
+	if ( ! bharathbyte_is_contact_request() ) {
+		return $shortlink;
+	}
+
+	return home_url( '/contact/' );
+}
+add_filter( 'pre_get_shortlink', 'bharathbyte_contact_shortlink' );
+
 function bharathbyte_render_contact_route() {
 	if ( ! bharathbyte_is_contact_request() ) {
 		return;
